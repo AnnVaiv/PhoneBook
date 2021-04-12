@@ -5,15 +5,14 @@ Users should be able to remove, find different contacts by name,
 phone number or part of name of contact,
 Users should be able to update contact.
 Users should be able to see all contacts.*/
+
 import java.util.Scanner;
 
 public class Menu {
+    PhoneBook phoneBook = new PhoneBook();
+    Scanner scanner = new Scanner(System.in);
+
     public void showMenu() {
-        PhoneBook phoneBook= new PhoneBook();
-
-        Scanner scanner = new Scanner(System.in);
-
-
         String userInput;
         do {
             System.out.println("Choose activity:");
@@ -29,13 +28,11 @@ public class Menu {
 
             switch (userInput.toLowerCase().trim()) {
                 case "1":
-                    System.out.println("See all contacts");
                     phoneBook.showContacts();
                     System.out.println("\nPress Enter to continue.");
                     scanner.nextLine();
                     break;
                 case "2":
-                    System.out.println("Add new contact");
                     phoneBook.addContact();
                     System.out.println("\nPress Enter to continue.");
                     scanner.nextLine();
