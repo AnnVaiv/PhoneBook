@@ -38,7 +38,6 @@ public class Menu {
                     scanner.nextLine();
                     break;
                 case "3":
-                    System.out.println("Search contact");
                     phoneBook.searchContact();
                     System.out.println("\nPress Enter to continue.");
                     scanner.nextLine();

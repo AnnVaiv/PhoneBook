@@ -38,39 +38,76 @@ public class PhoneBook {
         String email = scanner.nextLine();
         System.out.print("Enter phone: ");
         String phone = scanner.nextLine();
+        //System.out.println("");
 
-        Contact contact = new Contact(name, surname, email, phone);
+
+        String fullname = name+" "+surname;
+
+        Contact contact = new Contact(name, surname, email, phone, fullname);
         System.out.println(createContact(contact));
     }
 
     private String createContact(Contact newContact) {
         contacts.add(newContact);
-        return "New contact added: " + newContact.getName() + " " + newContact.getSurname();
+        return "New contact added: " + newContact.getFullname()/*newContact.getName()+" "+newContact.getSurname()*/;
     }
 
     public void searchContact() {
         System.out.println("\nSearch contact");
         System.out.print("Type here: ");
         String searchFor = scanner.nextLine();
+        System.out.println("Name\t|\tSurname\t|\temail\t|\tphone");
+        boolean check = false;
+
         for (Contact contact:contacts){
-            //System.out.println(contacts.contains("an"));
+            if (contact.getName().toLowerCase().contains(searchFor.toLowerCase())||
+                    contact.getSurname().toLowerCase().contains(searchFor.toLowerCase())||
+                    contact.getEmail().toLowerCase().contains(searchFor.toLowerCase())||
+                    contact.getPhone().toLowerCase().contains(searchFor.toLowerCase())||
+                    contact.getFullname().toLowerCase().contains(searchFor.toLowerCase())){
+                check = true;
+                System.out.println(contact.getName() +
+                        "\t|\t" + contact.getSurname() +
+                        "\t|\t" + contact.getEmail() +
+                        "\t|\t" + contact.getPhone());
+            }
+            if (check ==false){
+                System.out.println("No contact \""+searchFor+"\" found");
+            }
 
         }
-        //System.out.println(Arrays.stream(contacts).anyMatch(searchFor::equals));
-        /*if (contacts.contains(Objects.searchFor)){
-            System.out.println("Contacts found:\n"+contacts.contains(searchFor));//         THIS DO NOT WORK!!!
-        //(contacts.contains(searchFor)));
-        }else {
-            System.out.println(searchFor+" not found!");
-        }*/
 
     }
 
     public void updateContact() {
-        System.out.println("Update contact");
+        System.out.println("\nUpdate contact");
         System.out.print("Type here: ");
         int contactID = Integer.parseInt(scanner.nextLine());
+        /*Contact contact=new Contact();
+
+        System.out.print("Enter new name: ");
+        String newname = scanner.nextLine();
+        System.out.print("Enter new surname: ");
+        String newsurname = scanner.nextLine();
+        System.out.print("Enter new email: ");
+        String newemail = scanner.nextLine();
+        System.out.print("Enter new phone: ");
+        String newphone = scanner.nextLine();
+        //System.out.println("");
+
+
+        String fullname = newname+" "+newsurname;
+
+        Contact oldContact = this.contacts.get(contactID);
+        oldContact.setName(new);
+        oldContact.setSurname(newName);
+        oldContact.setEmail(newName);
+        oldContact.setPhone(newName);*/
+
+
     }
+
+
 
     public void deleteContact() {
         System.out.println("\nDelete contact");
@@ -79,7 +116,7 @@ public class PhoneBook {
     }
 
     public void getSingleContact() {
-        System.out.println("Single contact");
+        System.out.println("\nSingle contact");
 
     }
 

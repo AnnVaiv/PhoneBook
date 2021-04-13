@@ -5,12 +5,24 @@ public class Contact {
     private String surname;
     private String email;
     private String phone;
+    private String fullname;
 
-    public Contact(String name, String surname, String email, String phone) {
+    public Contact(String name, String surname, String email, String phone, String fullname) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.phone = phone;
+        this.fullname = name+" "+surname;
+
+    }
+
+    public String getFullname() {
+        this.fullname = name+" "+surname;
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getName() {
