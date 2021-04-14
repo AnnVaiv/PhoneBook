@@ -83,7 +83,6 @@ public class PhoneBook {
         System.out.println("\nUpdate contact");
         System.out.print("Type here: ");
         int contactID = Integer.parseInt(scanner.nextLine());
-        /*Contact contact=new Contact();
 
         System.out.print("Enter new name: ");
         String newname = scanner.nextLine();
@@ -93,17 +92,17 @@ public class PhoneBook {
         String newemail = scanner.nextLine();
         System.out.print("Enter new phone: ");
         String newphone = scanner.nextLine();
-        //System.out.println("");
 
-
-        String fullname = newname+" "+newsurname;
+        String newfullname = newname+" "+newsurname;
+        Contact updatedContact=new Contact(newname,newsurname, newemail,newphone,newfullname);
 
         Contact oldContact = this.contacts.get(contactID);
-        oldContact.setName(new);
-        oldContact.setSurname(newName);
-        oldContact.setEmail(newName);
-        oldContact.setPhone(newName);*/
-
+        oldContact.setName(updatedContact.getName());
+        oldContact.setSurname(updatedContact.getSurname());
+        oldContact.setEmail(updatedContact.getEmail());
+        oldContact.setPhone(updatedContact.getPhone());
+        oldContact.setFullname(updatedContact.getFullname());
+        System.out.println("Contact updated: " + oldContact.getFullname());
 
     }
 
