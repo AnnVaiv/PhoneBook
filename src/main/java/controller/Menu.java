@@ -43,17 +43,20 @@ public class Menu {
                     scanner.nextLine();
                     break;
                 case "4":
-                    System.out.println("Update contact");
                     phoneBook.updateContact();
                     System.out.println("\nPress Enter to continue.");
                     scanner.nextLine();
                     break;
                 case "5":
-                    System.out.println("Delete contact");
                     phoneBook.deleteContact();
                     System.out.println("\nPress Enter to continue.");
                     scanner.nextLine();
                     break;
+                /*case "6":
+                    phoneBook.getSingleContact();
+                    System.out.println("\nPress Enter to continue.");
+                    scanner.nextLine();
+                    break;*/
                 case "q":
                     System.out.println("Exiting phonebook.");
                     break;

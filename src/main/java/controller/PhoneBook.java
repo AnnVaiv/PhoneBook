@@ -71,7 +71,7 @@ public class PhoneBook {
                         "\t|\t" + contact.getEmail() +
                         "\t|\t" + contact.getPhone());
             }
-            if (check ==false){
+            if (!check){
                 System.out.println("No contact \""+searchFor+"\" found");
             }
 
@@ -108,15 +108,48 @@ public class PhoneBook {
 
 
 
-    public void deleteContact() {
+    public String deleteContact() {
         System.out.println("\nDelete contact");
         System.out.print("Type here: ");
         int contactID = Integer.parseInt(scanner.nextLine());
+        try {
+            contacts.remove(contactID);
+        } catch (Exception ex) {
+            return "Unable to delete contact";
+        }
+        return "Contact deleted successfully";
     }
 
-    public void getSingleContact() {
-        System.out.println("\nSingle contact");
+    /*public void getSingleContact() {
+        System.out.println("\nSearch contact you want to replace");
+        System.out.print("Type here: ");
+        String searchFor = scanner.nextLine();
+        System.out.println("Name\t|\tSurname\t|\temail\t|\tphone");
+        int check = 0;
+        int countID=-1;
 
-    }
+
+        for (Contact contact:contacts){
+            if (*//*contact.getName().toLowerCase().contains(searchFor.toLowerCase())||
+                    contact.getSurname().toLowerCase().contains(searchFor.toLowerCase())||*//*
+                    contact.getEmail().toLowerCase().contains(searchFor.toLowerCase())||
+                    contact.getPhone().toLowerCase().contains(searchFor.toLowerCase())||
+                    contact.getFullname().toLowerCase().contains(searchFor.toLowerCase())){
+                check ++;
+                countID++;
+            }
+            if (check==1){
+                System.out.println(contact.getName() +
+                        "\t|\t" + contact.getSurname() +
+                        "\t|\t" + contact.getEmail() +
+                        "\t|\t" + contact.getPhone());
+            }
+            if (check==0){
+                System.out.println("No contact \""+searchFor+"\" found");
+
+            }
+contacts.get(countID);
+        }
+    }*/
 
 }
